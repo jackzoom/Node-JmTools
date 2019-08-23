@@ -1,0 +1,9 @@
+module.exports={
+    mysql:{
+        database:'jm_tools',
+        user:'jackzoom',
+        password:'jackzoom',
+        host:'127.0.0.1',
+        port:3306        
+    }
+}

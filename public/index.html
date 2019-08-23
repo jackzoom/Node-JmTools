@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <label for="regName">姓名：<input id="regName" type="text"></label></br>
+    <label for="regPhone">手机：<input id="regPhone" type="number"></label></br>
+    <label for="regEmail">邮箱：<input id="regEmail" type="text"></label></br> 
+    <label for="regPassword">密码：<input id="regPassword" type="text"></label></br>    
+    <button id="register">注册</button>
+</br>
+    <label for="phone">手机：<input id="phone" type="number"></label></br>
+    <label for="password">密码：<input id="password" type="text"></label></br>    
+    <button  id="login">登录</button>
+
+
+
+    <script>
+        $(function(){
+            $('#register').click(()=>{
+                $.ajax({
+                    url:'http://127.0.0.1:3000/users/register',
+                    method:'POST',
+                    data:{
+                        name:$('#regName').val(),
+                        phone:$('#regPhone').val(),
+                        email:$('#regEmail').val(),
+                        password:$('#regPassword').val()
+                    },success:function(res){
+                        console.log("数据：",res);
+                    }
+                })
+
+            })
+            $('#login').click(()=>{
+                $.ajax({
+                    url:'http://127.0.0.1:3000/users/login',
+                    method:'POST',
+                    data:{
+                        phone:$('#phone').val(),
+                        password:$('#password').val()
+                    },
+                    success:function(res){
+                        console.log("登录:",res);
+                    }
+                })
+            })
+           
+        })
+    </script>
+    
+</body>
+</html>
